@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My To-Do List</title>
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div class="title">My To-Do List</div>
+
+	<div ng-app="TodoList" ng-controller="Controller">
+		<div class="left" >
+			<p class="addPrompt">Add New Items To Your To-Do List!</p>
+			<div class="error">{{error}}</div>
+			<table class="adding">
+				<tr>
+					<td>Title: </td>
+					<td><input ng-model="newTitle" maxlength="20"></td>
+				</tr>
+				<tr>
+					<td>Description: </td>
+					<td><textarea ng-model="newDetails" 
+					cols="40" rows="5"></textarea></td>
+				</tr>
+				<tr>
+					<td>Date: </td>
+					<td><input ng-model="newDate" type="date"></td>
+				</tr>
+				<tr>
+					<td colspan="2"><button ng-click="addItem()"> Add </button></td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="right">
+			<h2 class="listHeader"> 
+				Click on the Tasks below to view their descriptions.
+			</h2>
+
+			Hide Finished Tasks: 
+			<input type="checkbox" ng-model="checked" class="hideFinished"> 
+			<label for="hideFinished"></label> <br/>
+			<ul>
+				<li ng-repeat="x in items | orderBy: 'date'" ng-hide="checked && x.isDone">
+					<div class="item">
+						<div ng-class="{ 'itemHeader' : x.isDone == false, 'doneItemHeader' : x.isDone == true}" ng-click="showDetail(x.id)">
+							<div class="itemTitle">{{x.title}}</div>
+							<div class="itemDate">{{x.date}}</div> <br>
+						</div>
+						<div ng-show="x.showDetails" ng-class="{ 'detailsContainer' : x.isDone == false, 'doneDetailsContainer' : x.isDone == true}" >
+							<div class="detail">{{x.detail}}</div> <br>
+							<button ng-click="mark(x.id)"> {{x.isDone ? "Mark as Undone" : "Mark as Done"}} </button>
+							<button style="float:right;" ng-click="removeItem(x.id)"> Delete Item </button>
+						</div>
+					</div>
+				</li>
+				<li ng-hide="items.length"> New Tasks Will Appear Here!</li>
+			</ul>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.js"></script>
+
+
+
+	<script src="./controller.js"></script>
+</body>
+</html>

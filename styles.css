@@ -1,0 +1,117 @@
+.title {
+	font-size: 4em;
+	font-family:Comfortaa;
+	text-align: center;
+
+}
+
+li	{
+	list-style-type: none;
+	width: 90%;
+}
+
+.left {
+	font-family: Comfortaa;
+	text-align: center;
+	height: auto;
+	width:48%;
+	float:left;
+	border:2px solid #000;
+	overflow: hidden;
+}
+
+.right {	
+	height: auto;
+	width: 48%;
+	float:right;
+	border:2px solid #000;
+	height: 500px;
+	overflow: auto;
+}
+
+.adding {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	margin:10px;
+}
+.addPrompt {
+	font-size: 2em;
+}
+
+.error {
+	color:red;
+}
+
+.listHeader {
+	text-align: center;
+	font-family:Comfortaa;
+}
+
+.item {
+	width: 100%;
+	display: inline-block;
+}
+
+.itemHeader {
+	font-size: 1.5em;
+	border:solid black 1px;
+	background-color: #043E6F;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color:white;
+	font-family:arial;
+}
+
+.itemHeader:hover{
+	background-color: #06508E;
+}
+
+.doneItemHeader {
+	font-size: 1.5em;
+	border:solid black 1px;
+	background-color: #008A00;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	color:white;	
+	font-family:arial;	
+}
+
+.doneItemHeader:hover { 
+	background-color: #00B100;
+}
+
+.itemTitle {
+	text-align: center;
+	float: left;
+	width: 60%;
+}
+
+.itemDate {
+	float: right;
+	border-left: 1px solid grey;
+}
+
+.detailsContainer {
+	border:solid black 1px;
+	background: #086EC3;
+}
+
+.doneDetailsContainer {
+	border:solid black 1px;
+	background: #00DD00;
+}
+
+.detail {
+	min-height:60px;
+	overflow: auto;
+	text-align: center;
+	font-family: arial;
+}
+
+.hideFinished {
+	width: 30px;
+	height: 30px;
+	position: relative;
+	top:12px;
+}
